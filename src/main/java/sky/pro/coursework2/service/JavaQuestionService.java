@@ -14,13 +14,13 @@ public class JavaQuestionService implements QuestionService {
     private final ArrayList<Question> listQuestion = new ArrayList<>(List.of());
 
     @Override
-    public Question add(String question, String answer){
-       return add(new Question(question, answer));
+    public Question add(String question, String answer) {
+        return add(new Question(question, answer));
     }
 
     @Override
     public Question add(Question question) {
-        if(listQuestion.contains(question)){
+        if (listQuestion.contains(question)) {
             throw new IllegalArgumentException("Данный вопрос уже есть в списке");
         }
         listQuestion.add(question);
@@ -28,8 +28,8 @@ public class JavaQuestionService implements QuestionService {
     }
 
     @Override
-    public Question remove(Question question){
-        if (listQuestion.remove(question)){
+    public Question remove(Question question) {
+        if (listQuestion.remove(question)) {
             return question;
         }
         throw new QuestionNotFound("Элемента нет в списке");
@@ -37,25 +37,26 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Collection<Question> getAll() {
-        return listQuestion;}
+        return listQuestion;
+    }
 
     @Override
-    public Question find(String question){
+    public Question find(String question) {
         return listQuestion.stream()
-                .filter(e ->e.getQuestion().equals(question))
+                .filter(e -> e.getQuestion().equals(question))
                 .findFirst()
                 .orElseThrow(QuestionNotFound::new);
     }
 
     @Override
-    public Question getRandomQuestion(){
+    public Question getRandomQuestion() {
         int i = random.nextInt(listQuestion.size());
 
         return listQuestion.get(i);
     }
 
     @Override
-    public int size(){
+    public int size() {
         return listQuestion.size();
     }
 

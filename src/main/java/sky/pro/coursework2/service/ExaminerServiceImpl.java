@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sky.pro.coursework2.exception.FullSetException;
 import sky.pro.coursework2.model.Question;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class ExaminerServiceImpl implements ExaminerService {
 
-    private final QuestionService questionService;
+    private QuestionService questionService;
 
     @Override
     public Set<Question> getQuestion(int amount) {
