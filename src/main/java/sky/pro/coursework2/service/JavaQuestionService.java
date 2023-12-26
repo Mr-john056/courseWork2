@@ -1,5 +1,6 @@
 package sky.pro.coursework2.service;
 
+import org.springframework.stereotype.Service;
 import sky.pro.coursework2.exception.QuestionNotFound;
 import sky.pro.coursework2.model.Question;
 
@@ -8,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+@Service
 public class JavaQuestionService implements QuestionService {
 
     private final Random random = new Random();
